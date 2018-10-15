@@ -53,7 +53,8 @@ function tiroMeta(){
 }
 function gol(){
     console.log('OLHUGOOL');
-    console.table(jogo)
+    console.table(jogo);
+    
 }
 
 function defende(){

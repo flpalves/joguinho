@@ -55,12 +55,22 @@ jogo = {
         inicial : jTimeAway.slice()
     },
     posseBola : {
-        time : 'Home',
-        jogador : 5
+        time : 'timeHome',
+        jogador : 0
     },
-    tempo : 0
+    tempo : 0   
 
 }
+
+function rolaDado(){
+    var dado = Math.floor(Math.random() * 6) + 1;
+    console.log(jogo[jogo.posseBola.time].jogadores[jogo.posseBola.jogador].acoes[dado]);
+}
+
+
+
 // jogo.timeHome.jogadores[3] = 'hue';
-console.table(jogo.timeHome.inicial)
-console.table(jogo.timeHome.jogadores[0].acoes[1]());
+// console.table(jogo.timeHome.inicial)
+// console.table(jogo.timeHome.jogadores[0].acoes[1]());
+
+rolaDado();

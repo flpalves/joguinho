@@ -19,26 +19,230 @@ var jTimeHome = [
             6 : gol
         }
     },
-    'Juan',
-    'Leo Duarte',
-    'Cuellar',
-    'Lucas Paquetá',
-    'Diego',
-    'Everton Ribeiro',
-    'Vitinho',
-    'Uribe'
+    {
+        nome: 'Juan',
+        habilidade : 13,
+        posicao : 1,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : disputa
+        }
+    },
+    {
+        nome: 'Leo Duarte',
+        habilidade : 15,
+        posicao : 2,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : disputa
+        }
+    },
+    {
+        nome: 'Cuellar',
+        habilidade : 15,
+        posicao : 3,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : toque
+        }
+    },
+    {
+        nome: 'Lucas Paquetá',
+        habilidade : 15,
+        posicao : 4,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : lancamento
+        }
+    },
+    {
+        nome: 'Diego',
+        habilidade : 15,
+        posicao : 5,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : lancamento
+        }
+    },
+    {
+        nome: 'Everton Ribeiro',
+        habilidade : 15,
+        posicao : 1,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : toque
+        }
+    },
+    {
+        nome: 'Vitinho',
+        habilidade : 13,
+        posicao : 7,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : chute
+        }
+    },
+    {
+        nome: 'Uribe',
+        habilidade : 12,
+        posicao : 8,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : chute
+        }
+    }
 ]
 
 var jTimeAway = [
-    'Julio Cesar',
-    'Digão',
-    'Gum',
-    'Richard',
-    'Ayrton Lucas',
-    'Jadson',
-    'Daniel',
-    'Marcos Junior',
-    'Pedro'
+    {
+        nome: 'Julio Cesar',
+        habilidade : 15,
+        posicao : 1,
+        acoes: {
+            1 : gol,
+            2 : defende,
+            3 : gol,
+            4 : espalma,
+            5 : espalmaFora,
+            6 : gol
+        }
+    },
+    {
+        nome: 'Digão',
+        habilidade : 13,
+        posicao : 1,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : disputa
+        }
+    },
+    {
+        nome: 'Gum',
+        habilidade : 15,
+        posicao : 2,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : disputa
+        }
+    },
+    {
+        nome: 'Richard',
+        habilidade : 15,
+        posicao : 3,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : toque
+        }
+    },
+    {
+        nome: 'Ayrton Lucas',
+        habilidade : 15,
+        posicao : 4,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : lancamento
+        }
+    },
+    {
+        nome: 'Jadson',
+        habilidade : 15,
+        posicao : 5,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : lancamento
+        }
+    },
+    {
+        nome: 'Daniel',
+        habilidade : 15,
+        posicao : 6,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : toque
+        }
+    },
+    {
+        nome: 'Marcos Junior',
+        habilidade : 13,
+        posicao : 7,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : chute
+        }
+    },
+    {
+        nome: 'Pedro',
+        habilidade : 12,
+        posicao : 8,
+        acoes: {
+            1 : carrinho,
+            2 : corrida,
+            3 : chute,
+            4 : drible,
+            5 : toque,
+            6 : chute
+        }
+    }
 ]
 
 jogo = {

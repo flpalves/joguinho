@@ -87,7 +87,7 @@ var jTimeHome = [
     {
         nome: 'Everton Ribeiro',
         habilidade : 15,
-        posicao : 1,
+        posicao : 5,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -194,7 +194,7 @@ var jTimeAway = [
     {
         nome: 'Jadson',
         habilidade : 15,
-        posicao : 5,
+        posicao : 4,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -260,7 +260,7 @@ jogo = {
     },
     posseBola : {
         time : 'timeHome',
-        jogador : 0
+        jogador : 5
     },
     tempo : 0   
 

@@ -259,16 +259,18 @@ jogo = {
         inicial : jTimeAway.slice()
     },
     posseBola : {
-        time : 'timeHome',
+        timeAtk : 'timeHome',
+        timeDef : 'timeAway',
         jogador : 5
     },
     tempo : 0   
 
 }
 
-function rolaDado(){
+function rolaDado(jogador){
     var dado = Math.floor(Math.random() * 6) + 1;
-    console.log(jogo[jogo.posseBola.time].jogadores[jogo.posseBola.jogador].acoes[dado]);
+    // console.log(jogo[jogo.posseBola.time].jogadores[jogo.posseBola.jogador].acoes[dado]);
+    return dado;
 }
 
 
@@ -277,4 +279,4 @@ function rolaDado(){
 // console.table(jogo.timeHome.inicial)
 // console.table(jogo.timeHome.jogadores[0].acoes[1]());
 
-rolaDado();
+// rolaDado();

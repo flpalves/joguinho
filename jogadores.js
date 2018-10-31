@@ -1,6 +1,21 @@
 
 
 function toque(){
+    var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
+    var jogadorBola = timeBola[jogo.posseBola.jogador];
+    var casaAlvo = jogadorBola.posicao;
+    var envolvidos = buscaJogadorCampo(casaAlvo);
+
+    var jogadorAlvo = envolvidos.atk[[randomNumber(envolvidos.atk.length)]];
+    
+    if(jogadorBola.habilidade < randomNumber(25)){
+        // jogo.posseBola.jogador = jogadorAlvo;
+        console.log("acerta um passe perfeito para "+jogadorAlvo.nome);
+    }
+    debugger;
+
+    
+    
 
 } 
 
@@ -123,8 +138,13 @@ function espalmaFora(){
 */
 
 function buscaJogadorCampo(numeroCasa){
-    buscaJogadorCampoAtk(numeroCasa);
-    buscaJogadorCampoDef(9 - numeroCasa);
+    var arrAtk = buscaJogadorCampoAtk(numeroCasa);
+    var arrDef = buscaJogadorCampoDef(9 - numeroCasa);
+
+    return {
+        'atk' : arrAtk,
+        'def' : arrDef
+    }
 }
 
 function buscaJogadorCampoAtk(numeroCasa){
@@ -142,6 +162,8 @@ function buscaJogadorCampoAtk(numeroCasa){
     });
 
     console.table(jogadoresNaCasa);
+
+    return jogadoresNaCasa;
 }
 
 function buscaJogadorCampoDef(numeroCasa){
@@ -164,8 +186,14 @@ function buscaJogadorCampoDef(numeroCasa){
     });
 
     console.table(jogadoresNaCasa);
+
+    return jogadoresNaCasa;
 }
 
 function invertePosse(){
     console.log('inverte a posse');
+}
+
+function randomNumber(number){
+    return Math.floor(Math.random() * number);
 }

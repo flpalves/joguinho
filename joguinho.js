@@ -10,6 +10,7 @@ var jTimeHome = [
         nome: 'Diego Alves',
         habilidade : 15,
         posicao : 1,
+        camisa:1,
         acoes: {
             1 : gol,
             2 : defende,
@@ -23,6 +24,7 @@ var jTimeHome = [
         nome: 'Juan',
         habilidade : 13,
         posicao : 1,
+        camisa : 2,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -36,6 +38,7 @@ var jTimeHome = [
         nome: 'Leo Duarte',
         habilidade : 15,
         posicao : 2,
+        camisa : 3,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -49,6 +52,7 @@ var jTimeHome = [
         nome: 'Cuellar',
         habilidade : 15,
         posicao : 3,
+        camisa : 4,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -62,6 +66,7 @@ var jTimeHome = [
         nome: 'Lucas Paquetá',
         habilidade : 15,
         posicao : 4,
+        camisa : 5,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -75,6 +80,7 @@ var jTimeHome = [
         nome: 'Diego',
         habilidade : 15,
         posicao : 5,
+        camisa : 6,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -88,6 +94,7 @@ var jTimeHome = [
         nome: 'Everton Ribeiro',
         habilidade : 15,
         posicao : 5,
+        camisa : 7,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -101,6 +108,7 @@ var jTimeHome = [
         nome: 'Vitinho',
         habilidade : 13,
         posicao : 7,
+        camisa : 8,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -114,6 +122,7 @@ var jTimeHome = [
         nome: 'Uribe',
         habilidade : 12,
         posicao : 8,
+        camisa : 9,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -130,6 +139,7 @@ var jTimeAway = [
         nome: 'Julio Cesar',
         habilidade : 15,
         posicao : 1,
+        camisa : 1,
         acoes: {
             1 : gol,
             2 : defende,
@@ -143,6 +153,7 @@ var jTimeAway = [
         nome: 'Digão',
         habilidade : 13,
         posicao : 1,
+        camisa : 2,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -156,6 +167,7 @@ var jTimeAway = [
         nome: 'Gum',
         habilidade : 15,
         posicao : 2,
+        camisa : 3,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -169,6 +181,7 @@ var jTimeAway = [
         nome: 'Richard',
         habilidade : 15,
         posicao : 3,
+        camisa : 4,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -182,6 +195,7 @@ var jTimeAway = [
         nome: 'Ayrton Lucas',
         habilidade : 15,
         posicao : 4,
+        camisa : 5,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -195,6 +209,7 @@ var jTimeAway = [
         nome: 'Jadson',
         habilidade : 15,
         posicao : 4,
+        camisa : 6,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -208,6 +223,7 @@ var jTimeAway = [
         nome: 'Daniel',
         habilidade : 15,
         posicao : 6,
+        camisa : 7,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -221,6 +237,7 @@ var jTimeAway = [
         nome: 'Marcos Junior',
         habilidade : 13,
         posicao : 7,
+        camisa : 8,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -234,6 +251,7 @@ var jTimeAway = [
         nome: 'Pedro',
         habilidade : 12,
         posicao : 8,
+        camisa : 9,
         acoes: {
             1 : carrinho,
             2 : corrida,
@@ -261,7 +279,7 @@ jogo = {
     posseBola : {
         timeAtk : 'timeHome',
         timeDef : 'timeAway',
-        jogador : 5
+        jogador : 5             //camisa do jogador com a bola
     },
     tempo : 0   
 

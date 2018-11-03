@@ -6,13 +6,23 @@ function toque(){
     var casaAlvo = jogadorBola.posicao;
     var envolvidos = buscaJogadorCampo(casaAlvo);
 
-    var jogadorAlvo = envolvidos.atk[[randomNumber(envolvidos.atk.length)]];
-    
+    var camisaJogadorAlvo = envolvidos.atk[[randomNumber(envolvidos.atk.length)]].camisa;
+    var jogadorAlvo = getIndexByCamisa(timeBola, camisaJogadorAlvo);
+
+    //passe perfeito
     if(jogadorBola.habilidade < randomNumber(25)){
         // jogo.posseBola.jogador = jogadorAlvo;
-        console.log("acerta um passe perfeito para "+jogadorAlvo.nome);
+        console.log("acerta um passe perfeito para "+timeBola[jogadorAlvo].nome);
+        
     }
-    debugger;
+    //passe contestavel
+    else{
+        envolvidos.def.forEach(jogador => {
+            
+        });
+    }
+    
+    
 
     
     
@@ -161,7 +171,7 @@ function buscaJogadorCampoAtk(numeroCasa){
         }
     });
 
-    console.table(jogadoresNaCasa);
+    // console.table(jogadoresNaCasa);
 
     return jogadoresNaCasa;
 }
@@ -185,7 +195,7 @@ function buscaJogadorCampoDef(numeroCasa){
         }
     });
 
-    console.table(jogadoresNaCasa);
+    // console.table(jogadoresNaCasa);
 
     return jogadoresNaCasa;
 }
@@ -196,4 +206,10 @@ function invertePosse(){
 
 function randomNumber(number){
     return Math.floor(Math.random() * number);
+}
+
+function getIndexByCamisa(time, camisa){
+    
+    index = time.findIndex(x => x.camisa == camisa);
+    return index;
 }

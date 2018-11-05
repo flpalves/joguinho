@@ -17,17 +17,41 @@ function toque(){
     }
     //passe contestavel
     else{
+        var saiLoop = false;
         envolvidos.def.forEach(jogador => {
-            
+            if(!saiLoop){
+                saiLoop = tentaCorte(jogador);
+            }
         });
+    }    
+    return true;
+}
+/**
+ * Faz o jogador do loop tentar cortar a bola
+ * @return FALSE se nao tentou roubar a bola, TRUE se tentou roubar a bola
+ * @param Jogador jogador 
+ */
+function tentaCorte(jogador){
+    var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
+    var jogadorBola = timeBola[jogo.posseBola.jogador];
+    // mock function()
+    invertePosse(jogador);
+    var dado = rolaDado();
+    var acao = jogador.acoes[dado];
+    console.log(acao);
+    if(acao == carrinho){
+        carrinho(jogador);
+        return true;
+    } else if(acao == disputa){
+        disputa(jogadorBola, jogador);
+        return true;
+    }
+    else {
+        console.log('avança');
+        return false;
     }
     
-    
-
-    
-    
-
-} 
+}
 
 function corrida(){
 
@@ -89,12 +113,25 @@ function drible(){
 
 }
 
-function carrinho(){
+function carrinho(jogador){
+    if(randomNumber(30)) {
 
+    }
+    console.log('carrinho')
+    return true;
 }
 
-function disputa(){
-
+function disputa(pAtk, pDef){
+    var dadoAtk = pAtk.habilidades.forca + randomNumber(25);
+    var dadoDef = pDef.habilidades.forca + randomNumber(25);
+    if(dadoAtk > dadoDef){
+        console.log(pAtk.nome + 'ganha a bola e fica com a bola!');
+    } else{
+        console.log(pDef.nome+'vence no ombro e rouba a bola!')
+        invertePosse();
+    }
+    
+    return true;
 }
 
 function cruzamento(){
@@ -166,7 +203,7 @@ function buscaJogadorCampoAtk(numeroCasa){
 
     timeBola.forEach(function(element){
         if(element.posicao == numeroCasa){
-            console.log(element);
+            // console.log(element);
             jogadoresNaCasa.push(element);
         }
     });
@@ -190,7 +227,7 @@ function buscaJogadorCampoDef(numeroCasa){
 
     timeBola.forEach(function(element){
         if(element.posicao == numeroCasa){
-            console.log(element);
+            // console.log(element);
             jogadoresNaCasa.push(element);
         }
     });
@@ -200,8 +237,14 @@ function buscaJogadorCampoDef(numeroCasa){
     return jogadoresNaCasa;
 }
 
-function invertePosse(){
+function invertePosse(jogador){ 
     console.log('inverte a posse');
+    jogo.posseBola.jogador = 9 - jogador.posicao;
+    var novoAtkTemp = jogo.timeDef;
+    jogo.timeDef = jogo.timeAtk;
+    jogo.timeAtk = novoAtkTemp;
+    
+    return false;
 }
 
 function randomNumber(number){

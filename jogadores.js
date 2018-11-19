@@ -1,31 +1,62 @@
 
 
 function toque(){
+    // debugger;
     var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
     var jogadorBola = timeBola[jogo.posseBola.jogador];
-    var casaAlvo = jogadorBola.posicao;
+    var casaAlvo = jogadorBola.posicao + 1 ;
     var envolvidos = buscaJogadorCampo(casaAlvo);
+
+    //caso não tenha ninguem na casa a frente, toca pro lado;
+    if(envolvidos.atk.length == 0){
+        casaAlvo = jogadorBola.posicao;
+        envolvidos = buscaJogadorCampo(casaAlvo);
+    }
+
+    //caso não tenha ninguem na casa ao lado, toca pra trás;
+    if(envolvidos.atk.length == 0){
+        casaAlvo = jogadorBola.posicao - 1;
+        envolvidos = buscaJogadorCampo(casaAlvo);
+    } 
+
+    //caso não tenha ninguem na casa a frente;
+    if(envolvidos.atk.length == 0){
+        invertePosse();
+        return false;
+    }
 
     var camisaJogadorAlvo = envolvidos.atk[[randomNumber(envolvidos.atk.length)]].camisa;
     var jogadorAlvo = getIndexByCamisa(timeBola, camisaJogadorAlvo);
 
     //passe perfeito
-    if(jogadorBola.habilidade < randomNumber(25)){
-        // jogo.posseBola.jogador = jogadorAlvo;
-        console.log("acerta um passe perfeito para "+timeBola[jogadorAlvo].nome);
-        
+    console.log(jogadorBola.nome+' está com a bola')
+    if(jogadorBola.habilidades.toque < randomNumber(25)){
+        /* a ação */ 
+        jogo.posseBola.jogador = jogadorAlvo;
+        console.log("acerta um passe perfeito para "+timeBola[jogadorAlvo].nome); 
     }
     //passe contestavel
     else{
-        var saiLoop = false;
+        var tentouCortar = false;
         envolvidos.def.forEach(jogador => {
-            if(!saiLoop){
-                saiLoop = tentaCorte(jogador);
+            if(!tentouCortar){
+                acaoDefesa = tentaCorte(jogador);
+                tentouCortar = acaoDefesa.bool;
             }
         });
+        if(!tentouCortar){
+            /* a ação */ 
+            jogo.posseBola.jogador = jogadorAlvo;
+            console.log('faz o passe para '+ timeBola[jogadorAlvo].nome);
+        } else{
+            acaoDefesa.funcao();
+        }
     }    
     return true;
 }
+
+
+
 /**
  * Faz o jogador do loop tentar cortar a bola
  * @return FALSE se nao tentou roubar a bola, TRUE se tentou roubar a bola
@@ -34,23 +65,29 @@ function toque(){
 function tentaCorte(jogador){
     var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
     var jogadorBola = timeBola[jogo.posseBola.jogador];
-    // mock function()
+    // mock function() 
     invertePosse(jogador);
     var dado = rolaDado();
     var acao = jogador.acoes[dado];
-    console.log(acao);
+    var returning = {};
+    // console.log(acao);
     if(acao == carrinho){
-        carrinho(jogador);
-        return true;
+        returning = {
+            'bool' : true,
+            'funcao' : carrinho
+        }
     } else if(acao == disputa){
-        disputa(jogadorBola, jogador);
-        return true;
+        returning = {
+            'bool' : true,
+            'funcao' : disputa
+        }
     }
     else {
-        console.log('avança');
-        return false;
+        returning = {
+            bool : false
+        }
     }
-    
+    return returning;
 }
 
 function corrida(){

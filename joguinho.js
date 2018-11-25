@@ -457,7 +457,7 @@ jogo = {
     posseBola : {
         timeAtk : 'timeHome',
         timeDef : 'timeAway',
-        jogador : 5             //camisa do jogador com a bola
+        jogador : 5             //camisa    do jogador com a bola
     },
     tempo : {
         etapa : 1,
@@ -473,7 +473,7 @@ function rolaDado(){
 
 
 function proximaJogada(){
-    debugger;
+    
     var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
     var jogadorBola = timeBola[jogo.posseBola.jogador];
 
@@ -485,16 +485,17 @@ function controlaJogo(){
     var minuto = jogo.tempo.minuto;
 
     
+    
     if(etapa == 1){
         var acrescimos = randomNumber(5);
         if(minuto < 45 + acrescimos){
-            controlaJogo();
+            proximaJogada();
         }
     }
     if(etapa == 2){
         var acrescimos = randomNumber(5);
         if(minuto < 45 + acrescimos){
-            controlaJogo();
+            proximaJogada();
         }
     }
     

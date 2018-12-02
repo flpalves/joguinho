@@ -118,7 +118,7 @@ function corrida(){
     //corrida contestável
     else{
         var tentouCortar = false;
-        var jogadorDef = false;
+        var jogadorDef = false; 
         envolvidos.def.forEach(jogador => {
             if(!tentouCortar){
                 acaoDefesa = tentaCorte(jogador);

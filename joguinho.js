@@ -15,7 +15,7 @@ var jTimeHome = [
             espalma : 14,
             espalmaFora : 14,
             jogoAereo : 17,
-
+            reposicao : 14
         },
         posicao : 1,
         camisa:1,
@@ -234,6 +234,7 @@ var jTimeAway = [
             espalma : 12,
             espalmaFora : 12,
             jogoAereo : 13,
+            reposicao : 14
         },
         posicao : 1,
         camisa:1,
@@ -473,31 +474,40 @@ function rolaDado(){
 
 
 function proximaJogada(){
-    
+    // debugger;
     var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
     var jogadorBola = timeBola[jogo.posseBola.jogador];
 
-    jogadorBola.acoes[rolaDado()]();
+    if(jogadorBola.camisa == timeBola[0].camisa){
+        goleiroRepoeBola(jogadorBola);    
+    } else{
+        jogadorBola.acoes[rolaDado()]();    
+    }
+    
 }
 
 function controlaJogo(){
-    var etapa = jogo.tempo.etapa;
-    var minuto = jogo.tempo.minuto;
+    // debugger;
+    // var etapa = jogo.tempo.etapa;
+    // var minuto = jogo.tempo.minuto;
+    
+    while(jogo.tempo.etapa <= 2){
 
     
+        // for (let minuto = 0; minuto < (45 + randomNumber(4) ); minuto++) {
+        while(jogo.tempo.minuto < ( 45+randomNumber(4) ) ){
+            // setTimeout(() => {
+            //     proximaJogada()
+            // }, 1000);
+            proximaJogada();
+            jogo.tempo.minuto++;
+        }
+        printaAcao('final do '+jogo.tempo.etapa+' tempo');
+    }
+    printaAcao('Fim de jogo!');
+    printaAcao( jogo.timeHome.nome+' '+jogo.timeHome.placar+'x'+jogo.timeAway.placar+' '+jogo.timeAway.nome);
     
-    if(etapa == 1){
-        var acrescimos = randomNumber(5);
-        if(minuto < 45 + acrescimos){
-            proximaJogada();
-        }
-    }
-    if(etapa == 2){
-        var acrescimos = randomNumber(5);
-        if(minuto < 45 + acrescimos){
-            proximaJogada();
-        }
-    }
+    
     
 }
 
@@ -507,3 +517,11 @@ function controlaJogo(){
 // console.table(jogo.timeHome.jogadores[0].acoes[1]());
 
 // rolaDado();
+
+
+function printaAcao(jogada){
+    var p = document.createElement('p');
+    var texto = document.createTextNode(jogo.tempo.minuto+' |'+jogada);
+    p.appendChild(texto);
+    document.getElementById("result").appendChild(p);
+}

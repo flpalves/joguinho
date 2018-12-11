@@ -493,7 +493,7 @@ function controlaJogo(){
     
     while(jogo.tempo.etapa <= 2){
 
-    
+        jogo.tempo.minuto = 0;
         // for (let minuto = 0; minuto < (45 + randomNumber(4) ); minuto++) {
         while(jogo.tempo.minuto < ( 45+randomNumber(4) ) ){
             // setTimeout(() => {
@@ -502,7 +502,12 @@ function controlaJogo(){
             proximaJogada();
             jogo.tempo.minuto++;
         }
+        resetarTime();
+
+
         printaAcao('final do '+jogo.tempo.etapa+' tempo');
+        jogo.tempo.etapa++;
+
     }
     printaAcao('Fim de jogo!');
     printaAcao( jogo.timeHome.nome+' '+jogo.timeHome.placar+'x'+jogo.timeAway.placar+' '+jogo.timeAway.nome);

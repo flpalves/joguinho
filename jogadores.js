@@ -73,7 +73,8 @@ function toque(){
  * @param Jogador jogador 
  */ 
 function tentaCorte(jogador){
-    //debugger;
+    debugger;
+
     var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
     var jogadorBola = timeBola[jogo.posseBola.jogador];
     // mock function() 
@@ -121,6 +122,7 @@ function corrida(){
     if(envolvidos.def.length == 0){
         /*a acao */
         jogadorBola.posicao++;
+        printaAcao(jogadorBola.nome +"avança com a bola");
     }
 
 
@@ -129,6 +131,7 @@ function corrida(){
         /* a ação */ 
         printaAcao(jogadorBola.nome+' segue sem marcação e avança');
         jogadorBola.posicao++;
+        printaAcao(jogadorBola.nome +"avança com a bola");
     }
     //corrida contestável
     else{
@@ -146,6 +149,7 @@ function corrida(){
             printaAcao(jogadorBola.nome+' consegue escapar da marcação e segue com ela');
             console.log(jogadorDef); 
             jogadorBola.posicao++; 
+            printaAcao(jogadorBola.nome +"avança com a bola");
         } else{
             // acaoDefesa.funcao();
             if(acaoDefesa.funcao == 'carrinho'){
@@ -315,7 +319,7 @@ function disputa(pAtk, pDef){
     // se for chamado sem jogador de defesa, sorteia algum do campo em disputa
     if(!pDef){
         var posicaoBusca = jogo[jogo.posseBola.timeAtk].jogadores[jogo.posseBola.jogador].posicao;
-        pDef = buscaJogadorCampoDef(posicaoBusca);
+        pDef = buscaJogadorCampoDef(9 - posicaoBusca);
         //se o não houver nenhum jogador de defesa no campo, sai da função
         if(pDef.length == 0){
             return true; 
@@ -495,10 +499,15 @@ function rebote(){
     if(envolvidos.atk.length > 0){
         
         if(envolvidos.def.length == 1){
+<<<<<<< HEAD
             // debugger;
             // jogo.posseBola.jogador = envolvidos.atk[0].camisa;
             jogo.posseBola.jogador = getIndexByCamisa(jogo[jogo.posseBola.timeAtk].jogadores, envolvidos.atk[0].camisa);
             jogo.posseBola.posicao = envolvidos.atk[0].posicao;
+=======
+            debugger;
+            jogo.posseBola.jogador = envolvidos.atk[0].camisa;
+>>>>>>> c477af58d3678ac74599eb862494179bda7cb66f
             printaAcao('cai nos pés do centrovante que já tenta o chute! ');
             chute();
         } else{
@@ -659,6 +668,7 @@ function goleiroRepoeBola(goleiro){
     var jogador = [];
     if(goleiro.habilidades.reposicao > randomNumber(30)){
         jogador = buscaJogadorCampoAtk(casaAlvo)[0];
+<<<<<<< HEAD
         if(!jogador){
             jogador = buscaJogadorCampoAtk(casaAlvo - 1)[0];
             if(!jogador){
@@ -676,7 +686,27 @@ function goleiroRepoeBola(goleiro){
                 jogador = buscaJogadorCampoDef(9 - casaAlvo - 2)[0];
             }
         }
+=======
+
+        if(!jogador){
+            rifaBola(casaAlvo);
+            return false;
+        }
+
+        jogo.posseBola.jogador = getIndexByCamisa(jogo[jogo.posseBola.timeAtk].jogadores , jogador.camisa);
+        printaAcao(goleiro.nome+' entrega a bola para '+jogador.nome);
+    } else{
+        jogador = buscaJogadorCampoDef(9 - casaAlvo)[0];
+        
+        if(!jogador){
+            rifaBola(9 - casaAlvo);
+            return false;
+        }
+        jogo.posseBola.jogador = getIndexByCamisa(jogo[jogo.posseBola.timeAtk].jogadores , jogador.camisa);
+>>>>>>> c477af58d3678ac74599eb862494179bda7cb66f
         invertePosse(jogador);
+
+        
         printaAcao(goleiro.nome+' erra o lançamento, e a bola está com '+jogador.nome);
     }
 

@@ -663,7 +663,6 @@ function goleiroRepoeBola(goleiro){
     var jogador = [];
     if(goleiro.habilidades.reposicao > randomNumber(30)){
         jogador = buscaJogadorCampoAtk(casaAlvo)[0];
-<<<<<<< HEAD
         if(!jogador){
             jogador = buscaJogadorCampoAtk(casaAlvo - 1)[0];
             if(!jogador){
@@ -681,24 +680,6 @@ function goleiroRepoeBola(goleiro){
                 jogador = buscaJogadorCampoDef(9 - casaAlvo - 2)[0];
             }
         }
-=======
-
-        if(!jogador){
-            rifaBola(casaAlvo);
-            return false;
-        }
-
-        jogo.posseBola.jogador = getIndexByCamisa(jogo[jogo.posseBola.timeAtk].jogadores , jogador.camisa);
-        printaAcao(goleiro.nome+' entrega a bola para '+jogador.nome);
-    } else{
-        jogador = buscaJogadorCampoDef(9 - casaAlvo)[0];
-        
-        if(!jogador){
-            rifaBola(9 - casaAlvo);
-            return false;
-        }
-        jogo.posseBola.jogador = getIndexByCamisa(jogo[jogo.posseBola.timeAtk].jogadores , jogador.camisa);
->>>>>>> c477af58d3678ac74599eb862494179bda7cb66f
         invertePosse(jogador);
 
         

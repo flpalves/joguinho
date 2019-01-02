@@ -73,7 +73,7 @@ function toque(){
  * @param Jogador jogador 
  */ 
 function tentaCorte(jogador){
-    debugger;
+    // debugger;
 
     var timeBola = jogo[jogo.posseBola.timeAtk].jogadores;
     var jogadorBola = timeBola[jogo.posseBola.jogador];

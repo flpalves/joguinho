@@ -499,15 +499,10 @@ function rebote(){
     if(envolvidos.atk.length > 0){
         
         if(envolvidos.def.length == 1){
-<<<<<<< HEAD
             // debugger;
             // jogo.posseBola.jogador = envolvidos.atk[0].camisa;
             jogo.posseBola.jogador = getIndexByCamisa(jogo[jogo.posseBola.timeAtk].jogadores, envolvidos.atk[0].camisa);
             jogo.posseBola.posicao = envolvidos.atk[0].posicao;
-=======
-            debugger;
-            jogo.posseBola.jogador = envolvidos.atk[0].camisa;
->>>>>>> c477af58d3678ac74599eb862494179bda7cb66f
             printaAcao('cai nos pés do centrovante que já tenta o chute! ');
             chute();
         } else{

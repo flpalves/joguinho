@@ -1,0 +1,14 @@
+body{
+    /* font-family: 'Teko', sans-serif; */
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+}
+#result{
+    width:800px;
+    margin:0 auto;
+    display: block;
+}
+#result p{
+    padding:10px 20px;
+    margin-top: 20px;
+}

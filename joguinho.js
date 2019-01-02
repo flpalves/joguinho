@@ -446,14 +446,22 @@ jogo = {
     timeHome :{
         placar : 0,
         nome : 'CR Flamengo',
-        jogadores : jTimeHome.slice(),
-        inicial : jTimeHome.slice()
+        jogadores :  $.extend(true, [], jTimeHome),
+        inicial : $.extend(true, [], jTimeHome),
+        cores: {
+            principal  : 'red',
+            secundaria : 'black'
+        }
     },
     timeAway : {
         placar : 0,
-        nome : 'Fluminense FC',
-        jogadores : jTimeAway.slice(),
-        inicial : jTimeAway.slice()
+        nome : 'Fluminense FC', 
+        jogadores : $.extend(true, [], jTimeAway), 
+        inicial : $.extend(true, [], jTimeAway),
+        cores: {
+            principal  : '#990000',
+            secundaria : '#009933'
+        }
     },
     posseBola : {
         timeAtk : 'timeHome',
@@ -479,6 +487,7 @@ function proximaJogada(){
     var jogadorBola = timeBola[jogo.posseBola.jogador];
 
     if(jogadorBola.camisa == timeBola[0].camisa){
+        // debugger;
         goleiroRepoeBola(jogadorBola);    
     } else{
         jogadorBola.acoes[rolaDado()]();    
@@ -501,8 +510,11 @@ function controlaJogo(){
             // }, 1000);
             proximaJogada();
             jogo.tempo.minuto++;
+            resetarTime();  
         }
         printaAcao('final do '+jogo.tempo.etapa+' tempo');
+        jogo.tempo.etapa++;
+        jogo.tempo.minuto = 0;
     }
     printaAcao('Fim de jogo!');
     printaAcao( jogo.timeHome.nome+' '+jogo.timeHome.placar+'x'+jogo.timeAway.placar+' '+jogo.timeAway.nome);
@@ -521,7 +533,10 @@ function controlaJogo(){
 
 function printaAcao(jogada){
     var p = document.createElement('p');
-    var texto = document.createTextNode(jogo.tempo.minuto+' |'+jogada);
+    var texto = document.createTextNode(jogo.tempo.minuto+ '" '+ jogada);
     p.appendChild(texto);
-    document.getElementById("result").appendChild(p);
+    document.getElementById("result").appendChild(p).setAttribute("style", "background:"+jogo[jogo.posseBola.timeAtk].cores.principal+"; color:"+jogo[jogo.posseBola.timeAtk].cores.secundaria+"; border: 1px solid"+jogo[jogo.posseBola.timeAtk].cores.secundaria+" blue;");
 }
+
+
+ 
